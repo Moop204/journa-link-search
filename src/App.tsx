@@ -20,6 +20,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { SearchForm } from "./SearchForm";
+import { HomePage } from "./pages/HomePage"
 
 const SampleReporterResult: FunctionComponent<{}> = () => {
   return (
@@ -36,7 +37,7 @@ const SampleReporterResult: FunctionComponent<{}> = () => {
         <Text fontSize="xl">wkrb13</Text>
         <Box>
           <Text fontSize="lg">
-            XSGD Trading Up 0.2% Over Last 7 Days (XSGD)
+            XSGD Trading Up 0.2% Over Last 89 Days (XSGD)
           </Text>
           <Text fontSize="lg">
             Cullen Frost Bankers Inc. Grows Stock Holdings in Vanguard FTSE
@@ -75,63 +76,11 @@ function App() {
 
   return (
     <ChakraProvider>
-      <Box bg="tomato" width="100%" height="100vh">
-        <SimpleGrid
-          bg="tomato"
-          color="white"
-          columns={1}
-          spacingX="40px"
-          spacingY="20px"
-          flexGrow={1}
-        >
-          <Center>
-            <Heading> Journa-Link Search</Heading>
-          </Center>
-
-          <SearchForm />
-          <Divider />
-          <Center flexGrow={1} flexDirection="column">
-            {[<SampleReporterResult />, <SampleReporterResult />]}
-          </Center>
-        </SimpleGrid>
+      <Box>
+        <HomePage />
       </Box>
-      {/* <Center bg="tomato" h="100px" color="white">
-        <Flex flexDirection="column" flexGrow={1}>
-          <Center>
-            <Heading> Journa-Link Search</Heading>
-          </Center>
-
-          <Center>
-            <Editable defaultValue="Search here!" maxWidth="100%">
-              <EditablePreview />
-              <EditableInput />
-            </Editable>
-          </Center>
-          <Divider />
-
-          <Spinner />
-        </Flex>
-      </Center> */}
     </ChakraProvider>
 
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>Hello Vite + React!</p>
-    //     <p>
-    //       <button type="button" onClick={() => setCount((count) => count + 1)}>
-    //         count is: {count}
-    //       </button>
-    //     </p>
-    //     <p>
-    //       Edit <code>App.tsx</code> and save to test HMR updates.
-    //     </p>
-    //     <p>
-
-    //       {' | '}
-    //     </p>
-    //   </header>
-    // </div>
   );
 }
 

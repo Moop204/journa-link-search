@@ -11,6 +11,7 @@ const SearchForm: FunctionComponent<{}> = () => {
           width="40%"
           textAlign="center"
           textColor="white"
+          size="lg"
           textDecorationColor="white"
         />
       </Center>
