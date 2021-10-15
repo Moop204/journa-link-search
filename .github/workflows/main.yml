@@ -46,7 +46,7 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
       - name: Install packages
-        run: yarn init
+        run: yarn install
       - name: Build page
         run: yarn run build
       - name: Deploy to gh-pages
