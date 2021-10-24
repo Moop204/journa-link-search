@@ -89,10 +89,10 @@ function App() {
           </Center>
 
           <SearchForm />
-          <Divider />
+          {/* <Divider />
           <Center flexGrow={1} flexDirection="column">
             {[<SampleReporterResult />, <SampleReporterResult />]}
-          </Center>
+          </Center> */}
         </SimpleGrid>
       </Box>
       {/* <Center bg="tomato" h="100px" color="white">
