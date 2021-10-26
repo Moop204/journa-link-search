@@ -40,3 +40,8 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+@font-face {
+  font-family: 'Canterbury';
+  src: local('Canterbury'), url(./fonts/canterbury.regular.ttf) format('truetype');
+}

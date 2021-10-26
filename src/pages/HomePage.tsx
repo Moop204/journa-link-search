@@ -9,14 +9,16 @@ const HomePage: FunctionComponent<{}> = () => {
   return (
     <Box>
       <Grid templateColumns="repeat(5,1fr)"h="100vh">
-        <GridItem colSpan={2} bg="#d6b4b2">
-          <Center h="100vh" pl="15vw">
+        <GridItem colSpan={2}>
+           {/*bg="#d6b4b2">*/}
+          <Center h="100vh" pl="15vw" fontFamily="Canterbury" fontSize="70">
             Journalink
           </Center>
         </GridItem>
-        <GridItem colSpan={3} bg="#a5c0d1">
+        <GridItem colSpan={3}>
+           {/*bg="#a5c0d1">*/}
           <Center h="100vh">
-            <InputGroup w="40vw">
+            <InputGroup w="40vw" marginLeft="-100px">
               <Input variant="outline" size="lg"/>
               <InputRightElement h="47px">
                 <IconButton
