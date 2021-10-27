@@ -6,6 +6,18 @@ const HomePage: FunctionComponent<{}> = () => {
 
   const supportedPublishers: number[] = [0,1,2,3,4,5,6,7,8,9];
 
+  const handleSearch = (e: any) => {
+    e.preventDefault();
+    console.log('wala')
+  }
+
+  const handleEnterPress = (e: any) => {
+    e.preventDefault();
+    if (e.key === 'Enter') {
+      handleSearch(e);
+    }
+  }
+
   return (
     <Box>
       <Grid templateColumns="repeat(5,1fr)"h="100vh">
@@ -18,15 +30,13 @@ const HomePage: FunctionComponent<{}> = () => {
         <GridItem colSpan={3}>
            {/*bg="#a5c0d1">*/}
           <Center h="100vh">
-            <InputGroup w="40vw" marginLeft="-100px">
+            <InputGroup w="38vw" marginLeft="-100px" onKeyPress={event => handleEnterPress(event)}>
               <Input variant="outline" size="lg"/>
-              <InputRightElement h="47px">
-                <IconButton
-                  bg="rgb(a)"
-                  _hover={{ bg: "rgb(a)"}}
-                  icon={<SearchIcon />}
-                />
-              </InputRightElement>
+              <InputRightElement h="48px" pr="8px"
+                _hover={{ bg: "rgb(a)", cursor: "pointer"}}
+                children={<SearchIcon />}
+                onClick={event => handleSearch(event)}
+              />
             </InputGroup>
           </Center>
         </GridItem>
