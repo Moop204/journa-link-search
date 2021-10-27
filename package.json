@@ -1,9 +1,10 @@
 {
   "name": "journa-link-frontend",
   "version": "0.0.0",
+  "main": "src/App.tsx",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {
