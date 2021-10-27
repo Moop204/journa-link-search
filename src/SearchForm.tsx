@@ -12,20 +12,36 @@ import {
 } from "@chakra-ui/react";
 import React, { FunctionComponent, MouseEventHandler, useState } from "react";
 
+/** Describes the journalist.
+ * @property {string} name - name of journalist.
+ * @property {string} works - list of published works from this journalist.
+ */
 interface ReporterProfile {
   name: string;
-  works: {
-    publisher: string;
-    article: string;
-    link: string;
-  }[];
+  works: PublishedWork[];
 }
 
+/** Describes the article itself.
+ * @property {string} article - name of article.
+ * @property {string} link - link to article.
+ */
 interface Article {
   article: string;
   link: string;
 }
 
+/** Describes an article published by an organisation. */
+interface PublishedWork extends Article {
+  publisher: string;
+}
+
+/**
+ * ReporterResult
+ *
+ * Element that displays details regarding a single journalist.
+ * @param {string} name Name of reporter.
+ * @param {PublishedWork} works List of published articles.
+ */
 export const ReporterResult: FunctionComponent<ReporterProfile> = ({
   name,
   works,
@@ -64,6 +80,15 @@ export const ReporterResult: FunctionComponent<ReporterProfile> = ({
   );
 };
 
+/**
+ * converter
+ *
+ * Makes data provided by API into a ReporterProfile type.
+ * This is used for frontend components.
+ */
+
+// TODO: Do this step in API before sending
+
 const converter = (apiResp: any): ReporterProfile => {
   const works = [];
   for (const work of apiResp.work) {
@@ -84,6 +109,11 @@ const converter = (apiResp: any): ReporterProfile => {
   return res;
 };
 
+/**
+ * SearchForm
+ *
+ * Element that allows user to query journa-link backend
+ */
 export const SearchForm: FunctionComponent<{}> = () => {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState<any[]>([]);
