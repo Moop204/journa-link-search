@@ -122,8 +122,8 @@ export const SearchForm: FunctionComponent<{}> = () => {
         </InputRightElement>
       </InputGroup>
       {loading && (
-        <Center>
-          <Spinner w="40vh" h="40vh" />
+        <Center h="70vh">
+          <Spinner w="8vh" h="8vh" />
         </Center>
       )}
       {!loading &&
