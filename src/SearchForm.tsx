@@ -9,29 +9,8 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import React, { FunctionComponent, MouseEventHandler, useState } from "react";
-
-/** Describes the journalist.
- * @property {string} name - name of journalist.
- * @property {string} works - list of published works from this journalist.
- */
-interface ReporterProfile {
-  name: string;
-  works: PublishedWork[];
-}
-
-/** Describes the article itself.
- * @property {string} article - name of article.
- * @property {string} link - link to article.
- */
-interface Article {
-  article: string;
-  link: string;
-}
-
-/** Describes an article published by an organisation. */
-interface PublishedWork extends Article {
-  publisher: string;
-}
+import { converter } from "./helper/converter";
+import { ReporterProfile } from "./types";
 
 /**
  * ReporterResult
@@ -76,35 +55,6 @@ export const ReporterResult: FunctionComponent<ReporterProfile> = ({
       })}
     </Box>
   );
-};
-
-/**
- * converter
- *
- * Makes data provided by API into a ReporterProfile type.
- * This is used for frontend components.
- */
-
-// TODO: Do this step in API before sending
-
-const converter = (apiResp: any): ReporterProfile => {
-  const works = [];
-  for (const work of apiResp.work) {
-    const publisher: string = (work.link as string)
-      .replace("https://", "")
-      .split("/")[0];
-    const elm = {
-      publisher: publisher,
-      article: work.title,
-      link: work.link,
-    };
-    works.push(elm);
-  }
-  const res: ReporterProfile = {
-    name: apiResp.name,
-    works: works,
-  };
-  return res;
 };
 
 /**
