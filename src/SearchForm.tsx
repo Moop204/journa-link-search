@@ -1,3 +1,4 @@
+import { Autocomplete, Option } from "chakra-ui-simple-autocomplete";
 import {
   Input,
   Button,
@@ -7,6 +8,8 @@ import {
   Grid,
   Text,
   Heading,
+  Spinner,
+  Center,
 } from "@chakra-ui/react";
 import React, { FunctionComponent, MouseEventHandler, useState } from "react";
 import { converter } from "./helper/converter";
@@ -19,7 +22,7 @@ import { ReporterProfile } from "./types";
  * @param {string} name Name of reporter.
  * @param {PublishedWork} works List of published articles.
  */
-export const ReporterResult: FunctionComponent<ReporterProfile> = ({
+const ReporterResult: FunctionComponent<ReporterProfile> = ({
   name,
   works,
 }) => {
@@ -63,9 +66,11 @@ export const ReporterResult: FunctionComponent<ReporterProfile> = ({
  * Element that allows user to query journa-link backend
  */
 export const SearchForm: FunctionComponent<{}> = () => {
+  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [results, setResults] = useState<any[]>([]);
   const handleClick: MouseEventHandler = async (e) => {
+    setLoading(true);
     const base = "https://reporter-link-backend.herokuapp.com";
     const searchType = isNaN(parseInt(search)) ? "name" : "id";
     let domain = "journalist";
@@ -73,10 +78,18 @@ export const SearchForm: FunctionComponent<{}> = () => {
     const response = await fetch(query);
     const json = await response.json();
     setResults(json.map((api: any) => converter(api)));
-    console.log(json);
-    console.log("Done!");
-    console.log(results);
+    setLoading(false);
   };
+
+  const [result, setResult] = React.useState<Option[]>([]);
+
+  const options = [
+    // { value: "john", label: "John" },
+    { value: "andrew", label: "Andrew" },
+    { value: "alan", label: "Alan" },
+    { value: "conner", label: "Conner" },
+  ];
+
   return (
     <>
       <InputGroup size="md">
@@ -87,15 +100,36 @@ export const SearchForm: FunctionComponent<{}> = () => {
           value={search}
           onChange={(change) => setSearch(change.target.value)}
         />
+        {/* <Autocomplete
+          maxW="md"
+          options={options}
+          result={[]}
+          setResult={(options: Option[]) => {
+            setSearch(options[0].value);
+            console.log(options[0].value);
+          }}
+          onChange={(change) => setSearch(change.target.value)}
+          allowCreation={false}
+          renderCreateIcon={() => <></>}
+          placeholder="Autocomplete"
+          renderCheckIcon={() => <></>}
+        /> */}
+
         <InputRightElement width="4.5rem">
           <Button h="1.75rem" size="sm" onClick={(e) => handleClick(e)}>
             Search
           </Button>
         </InputRightElement>
       </InputGroup>
-      {results.map((record) => {
-        return <ReporterResult name={record.name} works={record.works} />;
-      })}
+      {loading && (
+        <Center h="70vh">
+          <Spinner w="8vh" h="8vh" />
+        </Center>
+      )}
+      {!loading &&
+        results.map((record) => {
+          return <ReporterResult name={record.name} works={record.works} />;
+        })}
     </>
   );
 };
