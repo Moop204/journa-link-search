@@ -25,15 +25,15 @@ export const Credits: FunctionComponent = () => {
             </Link>
           </Text>
         </HStack>
-        <Heading as="h3" size="lg">
+        <Heading as="h6" size="lg">
           Contributors
         </Heading>
         <HStack>
           <GitHubButton href="https://github.com/Moop204">
-            Follow @Moop204
+            Andrew
           </GitHubButton>
           <GitHubButton href="https://github.com/sengyh">
-            Follow @Sengyh
+            Seng
           </GitHubButton>
         </HStack>
       </VStack>

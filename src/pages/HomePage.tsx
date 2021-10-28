@@ -1,6 +1,7 @@
 import { Grid, GridItem, Box, Center, Text, Input, InputGroup, InputRightElement, Button, IconButton} from "@chakra-ui/react";
 import {SearchIcon} from '@chakra-ui/icons';
 import React, { FunctionComponent } from "react";
+import {Credits} from '../Credits';
 
 const HomePage: FunctionComponent<{}> = () => {
 
@@ -66,6 +67,7 @@ const HomePage: FunctionComponent<{}> = () => {
           </Center>
         </GridItem>
       </Grid>
+      <Credits />
     </Box>
   )
 }
