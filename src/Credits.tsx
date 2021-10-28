@@ -5,6 +5,11 @@ import { FunctionComponent } from "react";
 
 import GitHubButton from "react-github-btn";
 
+/**
+ * Credits
+ *
+ * Element that displays a link to the source code as well as a list of contributors to the project.
+ */
 export const Credits: FunctionComponent = () => {
   return (
     <Center paddingTop="20vh" bg="orange">
