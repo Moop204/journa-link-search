@@ -7,7 +7,7 @@ import GitHubButton from "react-github-btn";
 
 export const Credits: FunctionComponent = () => {
   return (
-    <Center>
+    <Center paddingTop="20vh" bg="orange">
       <VStack>
         <HStack>
           <Text fontSize="md">
