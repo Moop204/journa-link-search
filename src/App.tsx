@@ -21,6 +21,7 @@ import {
 } from "@chakra-ui/react";
 import { SearchForm } from "./SearchForm";
 import { HomePage } from "./pages/HomePage"
+import { Credits } from "./Credits";
 
 const SampleReporterResult: FunctionComponent<{}> = () => {
   return (
