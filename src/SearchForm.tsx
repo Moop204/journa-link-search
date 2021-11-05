@@ -94,6 +94,8 @@ export const SearchForm: FunctionComponent<{}> = () => {
     <>
       <InputGroup size="md">
         <Input
+          bg="white"
+          color="black"
           pr="4.5rem"
           type={"text"}
           placeholder="Enter search"
@@ -116,7 +118,12 @@ export const SearchForm: FunctionComponent<{}> = () => {
         /> */}
 
         <InputRightElement width="4.5rem">
-          <Button h="1.75rem" size="sm" onClick={(e) => handleClick(e)}>
+          <Button
+            h="1.75rem"
+            size="sm"
+            onClick={(e) => handleClick(e)}
+            color="darkgrey"
+          >
             Search
           </Button>
         </InputRightElement>
