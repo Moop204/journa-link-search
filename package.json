@@ -1,6 +1,7 @@
 {
   "name": "journa-link-frontend",
   "version": "0.0.0",
+  "license": "MIT",
   "main": "src/App.tsx",
   "scripts": {
     "dev": "vite",
@@ -14,7 +15,8 @@
     "chakra-ui-simple-autocomplete": "^1.0.0",
     "framer-motion": "^4",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "react-github-btn": "^1.2.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",

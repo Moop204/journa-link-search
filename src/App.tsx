@@ -20,6 +20,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { SearchForm } from "./SearchForm";
+import { Credits } from "./Credits";
 
 const SampleReporterResult: FunctionComponent<{}> = () => {
   return (
@@ -94,6 +95,7 @@ function App() {
             {[<SampleReporterResult />, <SampleReporterResult />]}
           </Center> */}
         </SimpleGrid>
+        <Credits />
       </Box>
       {/* <Center bg="tomato" h="100px" color="white">
         <Flex flexDirection="column" flexGrow={1}>
